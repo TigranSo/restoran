@@ -1,0 +1,74 @@
+
+<link rel="stylesheet" href="/css/form.css">
+<script>
+    function validateForm() {
+        var date = document.forms["reservationForm"]["date"].value;
+        var time = document.forms["reservationForm"]["time"].value;
+        var guests = document.forms["reservationForm"]["guests"].value;
+        var name = document.forms["reservationForm"]["name"].value;
+        var phone = document.forms["reservationForm"]["phone"].value;
+        var wishes = document.forms["reservationForm"]["wishes"].value;
+
+        if (date == "" || time == "" || guests == "" || name == "" || phone == "") {
+            alert("Пожалуйста, заполните все поля.");
+            return false;
+        } else {
+            $('#confirmationModal').modal('show');
+            return false;
+        }
+    }
+</script>
+<div class="section section-signup" style="background-image: url('/img/photo1693071065.jpeg'); background-size: cover; background-position: top center; min-height: 900px;">
+  <div class="container">
+    <div class="row">
+      <div class="card card-signup" data-background-color="orange">
+        <form name="reservationForm" class="form" onsubmit="return validateForm();">
+            <div class="card-header text-center">
+                <h3 class="card-title title-up">・БРОНЬ СТОЛА・</h3>
+            </div>
+            <div class="card-body">
+                <div class="input-group no-border mb-3">
+                    <input type="text" name="date" class="form-control" placeholder="Дата" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                </div>
+                <div class="input-group no-border mb-3">
+                    <input type="text" name="time" class="form-control" placeholder="Время" onfocus="(this.type='time')" onblur="if(this.value==''){this.type='text'}">
+                </div>
+                <div class="input-group no-border mb-3">
+                    <input type="number" name="guests" class="form-control text-form" placeholder="Количество гостей">
+                </div>
+                <div class="input-group no-border mb-3">
+                    <input type="text" name="name" class="form-control text-form" placeholder="Имя">
+                </div>
+                <div class="input-group no-border mb-3">
+                    <input type="text" name="phone" class="form-control text-form" placeholder="Телефон">
+                </div>
+                <div class="input-group no-border mb-3">
+                    <textarea name="wishes" class="form-control text-form" placeholder="Пожелания" rows="5" cols="33"></textarea>
+                </div>
+            </div>
+            <div class="card-footer text-center m-4">
+                <button type="submit" class="btn btn-neutral btn-round btn-lg">Забронировать</button>
+            </div>
+        </form>
+      </div>
+      <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Подтверждение заявки</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Вашая заявка отправлена.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
